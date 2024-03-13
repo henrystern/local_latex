@@ -1,0 +1,174 @@
+% Source: Pascal Michaillat - https://github.com/pmichaillat/latex-presentation
+
+% Documentation: https://pascalmichaillat.org/d1/
+% Use dark mode with \usepackage[dark]{minimal_presentation}
+
+\ProvidesPackage{minimal_presentation}
+
+% --- Options ---
+\usepackage{kvoptions}
+\usepackage{kvsetkeys}
+\SetupKeyvalOptions{
+  family = fam, 
+  prefix = fam@,
+  setkeys = \kvsetkeys,
+}
+\DeclareBoolOption{dark}
+\ProcessKeyvalOptions*
+
+% --- Fonts ---
+
+\usefonttheme{professionalfonts}
+\usepackage{sourcesanspro}
+\usepackage{sourcecodepro}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,eucal,bbold,bm}
+\usepackage[italic,eulergreek,symbolmisc]{mathastext}
+\usepackage{url}
+
+% Microtypography
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% Correct spacing around letters in math
+\MTsetmathskips{y}{1mu}{0mu}
+\MTsetmathskips{j}{1.5mu}{0mu}
+
+% --- Beamer theme ---
+
+\usetheme{Boadilla}
+\usecolortheme[]{seagull}
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+
+% --- Font sizes and shapes ---
+
+\setbeamerfont{title}{size=\huge, series=\scshape}
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{frametitle}{series=\scshape}
+\setbeamertemplate{frametitle}{\MakeLowercase{\insertframetitle}}
+\setbeamertemplate{frametitle continuation}{[\insertcontinuationcount]}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{button}{size=\footnotesize}
+
+% --- Spacing ---
+
+\usepackage[onehalfspacing]{setspace}
+\setbeamertemplate{title page}[default][left,leftskip=-8pt]
+\addtobeamertemplate{frametitle}{\vskip3mm}{}
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+% --- Color ---
+
+% Alert colors
+\definecolor{highlight}{RGB}{155, 119, 218}
+\definecolor{alertDefault}{RGB}{242, 91, 171}
+\definecolor{alertBlue}{RGB}{99, 181, 236}
+\definecolor{alertRed}{RGB}{255, 115, 138}
+\definecolor{alertGreen}{RGB}{48, 159, 101}
+
+\iffam@dark
+  \definecolor{background}{RGB}{28,36,51}
+  \definecolor{bgContrast}{RGB}{25, 33, 46}
+  \definecolor{foreground}{RGB}{195, 207, 217}
+  \definecolor{fgContrast}{RGB}{204, 204, 204}
+\else
+  \definecolor{background}{RGB}{255, 255, 255}
+  \definecolor{bgContrast}{RGB}{255, 255, 255}
+  \colorlet{foreground}{gray!60!}
+  \colorlet{fgContrast}{black!85!}
+\fi
+
+\setbeamercolor{background canvas}{bg=background}
+\setbeamercolor{title}{fg=fgContrast}
+\setbeamercolor{frametitle}{fg=fgContrast}
+\setbeamercolor{normal text}{fg=fgContrast}
+\setbeamercolor{itemize item}{fg=foreground}
+\setbeamercolor{itemize subitem}{fg=foreground} 
+\setbeamercolor{enumerate item}{fg=foreground} 
+\setbeamercolor{enumerate subitem}{fg=foreground}
+\setbeamercolor{footline}{fg=foreground}
+\setbeamercolor{button}{fg=foreground, bg=bgContrast}
+
+
+% --- Slide numbers ---
+
+% No slide numbers by default
+\setbeamertemplate{footline}{}
+
+% Uncomment the line below to insert slide numbers
+% \setbeamertemplate{footline}[frame number]
+
+% --- Title slide ---
+
+% % Title capitalization and underline
+\let\oldtitle\title
+\renewcommand{\title}[1]{\oldtitle[]{\MakeLowercase{#1}\vspace{-5mm}\\\color{highlight}{\rule{\textwidth}{2pt}}\vspace{1cm}}}
+
+% Paper information
+\usepackage{xparse}
+\NewDocumentCommand{\information}{o g g}{%
+\author[]{#2%
+\IfValueT{#3}{\vspace{5mm}\\#3}%
+\IfValueT{#1}{\vspace{5mm}\\\color{foreground}{\footnotesize Available at \url{#1}}}%
+}\date[]{}}
+
+% --- Lists ---
+
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{\textendash} 
+\setbeamertemplate{enumerate item}[default]
+\setbeamertemplate{enumerate subitem}[default]
+\setbeamertemplate{enumerate subitem}{\alph{enumii}.}
+
+% --- Alerts ---
+
+% Standard alert
+\NewDocumentCommand{\al}{o g}{%
+\IfNoValueTF{#1}{\textcolor{alertDefault}{#2}}%
+{\textcolor<#1>{alertDefault}{#2}}}
+
+% Green alert
+\NewDocumentCommand{\alg}{o g}{%
+\IfNoValueTF{#1}{\textcolor{alertGreen}{#2}}%
+{\textcolor<#1>{alertGreen}{#2}}}
+
+% Red alert
+\NewDocumentCommand{\alr}{o g}{%
+\IfNoValueTF{#1}{\textcolor{alertRed}{#2}}%
+{\textcolor<#1>{alertRed}{#2}}}
+
+% Blue alert
+\NewDocumentCommand{\alb}{o g}{%
+\IfNoValueTF{#1}{\textcolor{alertBlue}{#2}}%
+{\textcolor<#1>{alertBlue}{#2}}}
+
+% --- Tables & figures  ---
+
+\usepackage{multirow,booktabs}
+
+% Captions
+\usepackage{caption}
+\captionsetup{labelformat=empty,size=normalsize}
+
+% Centered figures
+\let\oldincludegraphics\includegraphics 
+\renewcommand{\includegraphics}[2][]{\centering\oldincludegraphics[#1]{#2}}
+
+% --- Section slide ---
+
+\newcommand{\heading}[1]{\LARGE\scshape\color{fgContrast}\singlespacing\MakeLowercase{#1}\vspace{-3mm}\\\color{highlight}{\rule{\textwidth}{2pt}}}
+
+% --- Pictograms ---
+
+\def\up{\textuparrow\,}
+\def\down{\textdownarrow\,}
+\def\flat{\textrightarrow\,}
+\def\then{$\rightsquigarrow\,$}
+\def\so{{$\implies$}}
+\def\iff{{$\shortiff$}}
+
+% --- Last slide ---
+
+\newcommand{\lastslide}{\begin{frame}\end{frame}}
+
