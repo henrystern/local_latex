@@ -74,7 +74,7 @@
   \definecolor{fgContrast}{RGB}{204, 204, 204}
 \else
   \definecolor{background}{RGB}{255, 255, 255}
-  \definecolor{bgContrast}{RGB}{255, 255, 255}
+  \definecolor{bgContrast}{RGB}{225, 225, 225}
   \colorlet{foreground}{gray!60!}
   \colorlet{fgContrast}{black!85!}
 \fi
@@ -88,8 +88,13 @@
 \setbeamercolor{enumerate item}{fg=foreground} 
 \setbeamercolor{enumerate subitem}{fg=foreground}
 \setbeamercolor{footline}{fg=foreground}
-\setbeamercolor{button}{fg=foreground, bg=bgContrast}
+\setbeamercolor{button}{fg=fgContrast, bg=bgContrast}
+\setbeamercolor{block title}{fg=fgContrast, bg=bgContrast}
+\setbeamercolor{block body}{fg=fgContrast, bg=bgContrast!95}
 
+% --- Theorem boxes ---
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
 
 % --- Slide numbers ---
 
