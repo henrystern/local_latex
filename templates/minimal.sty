@@ -2,6 +2,13 @@
 
 % Documentation: https://pascalmichaillat.org/d2/
 
+% --- Useful Packages ---
+
+\usepackage{mathtools}
+
+% --- Disable indentation ---
+\usepackage{parskip}
+
 % --- Fonts ---
 
 \usepackage{sourceserifpro}
@@ -11,7 +18,6 @@
 \usepackage[italic,eulergreek,symbolmisc]{mathastext}
 \usepackage[hyphens]{url}
 \usepackage{microtype}
-\usepackage{mathtools}
 
 % Correct spacing around letters in math
 \MTsetmathskips{f}{3mu}{0mu}
@@ -43,7 +49,7 @@
 
 % Title font
 \usepackage{titling}
-\pretitle{\begin{center}\bfseries\huge} 
+\pretitle{\begin{center}\bfseries\Large} 
 
 % No thanks mark
 \renewcommand{\tamark}{}
@@ -108,10 +114,10 @@
 
 \usepackage{enumitem}
 \setlist{nosep}
-\setlist[itemize,1]{leftmargin=\parindent,label=\color{gray}{\upshape\textbullet}}
-\setlist[itemize,2]{leftmargin=2\parindent,label=\color{gray}{\upshape\textendash}}
-\setlist[enumerate,1]{leftmargin=\parindent,label=\color{gray}{\upshape\alph*.}}
-\setlist[enumerate,2]{leftmargin=2\parindent,label=\color{gray}{\upshape\roman*.}}
+\setlist[itemize,1]{leftmargin=\parindent,label=\color{black!75}{\upshape\textbullet}}
+\setlist[itemize,2]{leftmargin=2\parindent,label=\color{black!75}{\upshape\textendash}}
+\setlist[enumerate,1]{leftmargin=\parindent,label=\color{black!75}{\upshape\alph*.}}
+\setlist[enumerate,2]{leftmargin=2\parindent,label=\color{black!75}{\upshape\roman*.}}
 
 % --- Bibliography ---
 
@@ -156,7 +162,7 @@
 
 % --- Layout (after hyperref) ---
 
-\usepackage[margin=1.1in,footskip=0.7in]{geometry}
+\usepackage[margin=1.5in,footskip=0.7in]{geometry}
 
 % --- Headers & footers (after hyperref & geometry) ---
 
@@ -166,12 +172,12 @@
 % Centered page numbers on regular pages
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[C]{\thepage}
+\fancyfoot[C]{--- \thepage\  ---}
 
 % Footers for title pages
 \fancypagestyle{plain}{\fancyhf{}}
 \usepackage{xparse}
 \NewDocumentCommand{\available}{o g}{%
-\fancypagestyle{plain}{\fancyfoot[C]{\color{gray}\footnotesize%
+\fancypagestyle{plain}{\fancyfoot[C]{\color{black!75}\footnotesize%
 \IfValueT{#1}{Published in \emph{#1}\;\textbullet\;}%
 Available at \url{#2}}}}
