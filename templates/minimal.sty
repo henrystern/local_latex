@@ -73,6 +73,7 @@
 \newtheoremstyle{paper}{}{}{\itshape}{}{\scshape}{.}{.5em}{}
 \theoremstyle{paper}
 \newtheorem{theorem}{theorem}
+\newtheorem*{theorem*}{theorem}
 \newtheorem{proposition}{proposition}
 \newtheorem{lemma}{lemma}
 \newtheorem{corollary}{corollary}
@@ -83,6 +84,11 @@
 
 % Proof label font
 \renewcommand{\proofname}{\upshape\scshape proof}
+
+% Solution proof environment
+\newenvironment{solution}
+  {\begin{proof}[\upshape\scshape solution]}
+  {\end{proof}}
 
 % --- Tables & figures ---
 
