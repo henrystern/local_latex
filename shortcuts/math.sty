@@ -21,6 +21,11 @@
 
 % --- Operators ---
 
+% cardinality
+\NewDocumentCommand{\card}{g}{%
+\IfNoValueTF{#1}{\operatorname{card}}%
+{\,{\operatorname{card}}{\bp{#1}}}}
+
 % Logarithm
 \let\oldln\ln
 \RenewDocumentCommand{\ln}{g}{%
@@ -81,7 +86,7 @@
 {\,{\oldsup\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
 
 % Argmax
-\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\argmax}{\operatorname{argmax}}
 
 % Minimum
 \let\oldmin\min
@@ -141,7 +146,7 @@ d\IfValueT{#1}{^{#1}} #2/d #3\IfValueT{#1}{^{#1}}}
 
 % --- Statistical commands ---
 
-\DeclareMathOperator*{\ess}{ess}
+\newcommand{\ess}{\operatorname{ess}}
 \newcommand{\iid}{\mathbin{\overset{iid}{\sim}}}
 \newcommand{\asto}{\mathbin{\overset{as}{\to}}}
 \newcommand{\pto}{\mathbin{\overset{p}{\to}}}
