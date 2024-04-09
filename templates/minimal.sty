@@ -5,6 +5,7 @@
 % --- Useful Packages ---
 
 \usepackage{mathtools}
+\usepackage{etoolbox}
 
 % --- Disable indentation ---
 \usepackage{parskip}
@@ -12,6 +13,7 @@
 % --- Fonts ---
 
 \usepackage{sourceserifpro}
+\usepackage{sourcesanspro}
 \usepackage{sourcecodepro}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsthm,eucal,bbold,bm}
@@ -63,7 +65,8 @@
 % --- Headings ---
 
 \usepackage{titlesec}
-\titleformat*{\section}{\centering\large\bfseries}
+% \titleformat*{\section}{\centering\large\bfseries}
+\titleformat*{\section}{\large\bfseries}
 \titleformat*{\subsection}{\bfseries}
 \titleformat{\paragraph}[runin]{\itshape}{}{}{}[.]
 \titlelabel{\thetitle.\quad}
@@ -71,6 +74,7 @@
 % --- Theorems & proofs ---
 
 \newtheoremstyle{paper}{}{}{\itshape}{}{\scshape}{.}{.5em}{}
+\patchcmd{\thmhead}{(#3)}{\scshape\lowercase{--- #3}}{}{} % em dash for optional argument
 \theoremstyle{paper}
 \newtheorem{theorem}{theorem}
 \newtheorem*{theorem*}{theorem}

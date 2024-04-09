@@ -1,32 +1,25 @@
 % --- Colour Boxes ---
 \usepackage{mdframed}
+\mdfsetup{
+  skipabove=8pt,
+  linewidth=1pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+}
 
 \definecolor{deepGreen}{RGB}{26,111,0}
 \definecolor{shallowGreen}{RGB}{235,255,255}
 \definecolor{deepBlue}{RGB}{61,124,222}
 \definecolor{shallowBlue}{RGB}{235,249,255}
 
-\mdfdefinestyle{default}{
-  linewidth=1pt,
-  leftmargin=0pt,
-  innerleftmargin=20pt,
-  innerrightmargin=20pt,
-}
+\mdfdefinestyle{default}{}
 \mdfdefinestyle{green}{
-  linewidth=1pt,
   backgroundcolor=shallowGreen,
   linecolor=deepGreen,
-  leftmargin=0pt,
-  innerleftmargin=20pt,
-  innerrightmargin=20pt,
 }
 \mdfdefinestyle{blue}{
-  linewidth=1pt,
   backgroundcolor=shallowBlue,
   linecolor=deepBlue,
-  leftmargin=0pt,
-  innerleftmargin=20pt,
-  innerrightmargin=20pt,
 }
 
 \newenvironment{colourbox}[1][default]{\begin{mdframed}[style=#1]}{\end{mdframed}}
