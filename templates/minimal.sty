@@ -5,6 +5,7 @@
 % --- Useful Packages ---
 
 \usepackage{mathtools}
+\usepackage{etoolbox}
 
 % --- Disable indentation ---
 \usepackage{parskip}
@@ -73,6 +74,7 @@
 % --- Theorems & proofs ---
 
 \newtheoremstyle{paper}{}{}{\itshape}{}{\scshape}{.}{.5em}{}
+\patchcmd{\thmhead}{(#3)}{\scshape\lowercase{--- #3}}{}{} % em dash for optional argument
 \theoremstyle{paper}
 \newtheorem{theorem}{theorem}
 \newtheorem*{theorem*}{theorem}
