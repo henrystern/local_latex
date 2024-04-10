@@ -7,19 +7,19 @@
   innerrightmargin=10pt,
 }
 
-\definecolor{deepGreen}{RGB}{26,111,0}
-\definecolor{shallowGreen}{RGB}{235,255,255}
-\definecolor{deepBlue}{RGB}{61,124,222}
-\definecolor{shallowBlue}{RGB}{235,249,255}
+\definecolor{pastelRed}{RGB}{252, 192, 187}
+\definecolor{pastelGreen}{RGB}{212, 239, 206}
+\definecolor{pastelBlue}{RGB}{191, 213, 232}
 
 \mdfdefinestyle{default}{}
 \mdfdefinestyle{green}{
-  backgroundcolor=shallowGreen,
-  linecolor=deepGreen,
+  linecolor=pastelGreen,
 }
 \mdfdefinestyle{blue}{
-  backgroundcolor=shallowBlue,
-  linecolor=deepBlue,
+  linecolor=pastelBlue,
+}
+\mdfdefinestyle{red}{
+  linecolor=pastelRed,
 }
 
 \newenvironment{colourbox}[1][default]{\begin{mdframed}[style=#1]}{\end{mdframed}}
