@@ -183,6 +183,9 @@
 
 \usepackage{fancyhdr} % Before hyperref
 \usepackage[pdftex,hidelinks,hypertexnames=false,pdfpagemode=UseNone,pdfdisplaydoctitle=true]{hyperref}
+\definecolor{clay}{RGB}{165, 74, 74}
+\NewCommandCopy{\oldhref}{\href}
+\renewcommand{\href}[2]{\oldhref{#1}{#2\color{clay}°}}
 
 % --- Layout (after hyperref) ---
 
