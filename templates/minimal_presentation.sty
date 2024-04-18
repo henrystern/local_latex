@@ -38,7 +38,6 @@
 
 \usetheme{Boadilla}
 \usecolortheme[]{seagull}
-\setbeamercovered{transparent}
 \setbeamertemplate{navigation symbols}{}
 
 % --- Font sizes and shapes ---
@@ -46,8 +45,13 @@
 \setbeamerfont{title}{size=\huge, series=\scshape}
 \setbeamerfont{author}{size=\large}
 \setbeamerfont{frametitle}{series=\scshape}
-\setbeamertemplate{frametitle}{\MakeLowercase{\insertframetitle}}
+\setbeamertemplate{frametitle}{
+  {\color{highlight}{\rule{\textwidth}{.4pt}}}
+  \MakeLowercase{\insertframetitle}
+}
 \setbeamertemplate{frametitle continuation}{[\insertcontinuationcount]}
+\setlength{\leftmargini}{0cm}
+\setlength{\leftmarginii}{0cm}
 \setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
 \setbeamerfont{button}{size=\footnotesize}
 
@@ -55,8 +59,8 @@
 
 \usepackage[onehalfspacing]{setspace}
 \setbeamertemplate{title page}[default][left,leftskip=-8pt]
-\addtobeamertemplate{frametitle}{\vskip3mm}{}
-\setbeamersize{text margin left=5mm,text margin right=5mm}
+\addtobeamertemplate{frametitle}{\vskip5mm}{}
+\setbeamersize{text margin left=10mm,text margin right=10mm}
 
 % --- Color ---
 
@@ -73,16 +77,16 @@
   \definecolor{foreground}{RGB}{195, 207, 217}
   \definecolor{fgContrast}{RGB}{204, 204, 204}
 \else
-  \definecolor{background}{RGB}{255, 255, 255}
+  \definecolor{background}{RGB}{237, 237, 237}
   \definecolor{bgContrast}{RGB}{225, 225, 225}
-  \colorlet{foreground}{gray!60!}
-  \colorlet{fgContrast}{black!85!}
+  \definecolor{foreground}{RGB}{70, 70, 70}
+  \definecolor{fgContrast}{RGB}{60, 60, 60}
 \fi
 
 \setbeamercolor{background canvas}{bg=background}
-\setbeamercolor{title}{fg=fgContrast}
-\setbeamercolor{frametitle}{fg=fgContrast}
-\setbeamercolor{normal text}{fg=fgContrast, bg=background}
+\setbeamercolor{title}{fg=foreground}
+\setbeamercolor{frametitle}{fg=foreground}
+\setbeamercolor{normal text}{fg=foreground, bg=background}
 \setbeamercolor{itemize item}{fg=foreground}
 \setbeamercolor{itemize subitem}{fg=foreground} 
 \setbeamercolor{enumerate item}{fg=foreground} 
